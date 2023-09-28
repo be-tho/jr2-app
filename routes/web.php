@@ -17,5 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
-//crear cuenta
+//Login
 Route::get('/login', [LoginController::class, 'index'])->name('auth.index');
+
