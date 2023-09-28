@@ -19,17 +19,24 @@
             <img src="{{ asset('img/jr2-logo.png') }}" alt="logo" class="logo">
         </a>
         <ul class="flex items-center">
+            @if(auth()->check())
             <li>
                 <a href="/" class="text-lg text-white font-bold px-4 hover:text-blue-500">Home</a>
             </li>
             <li>
-{{--                <a href="{{ route() }}" class="text-lg text-white font-bold px-4 hover:text-blue-500">About</a>--}}
-{{--                link a login con el route debido --}}
-                <a href="{{ route('auth.index') }}" class="text-lg text-white font-bold px-4 hover:text-blue-500">Login</a>
-            </li>
-            <li>
                 <a href="" class="text-lg text-white font-bold px-4 hover:text-blue-500">Contact</a>
             </li>
+            <li>
+                <a href="" class="text-lg text-white font-bold px-4 hover:text-blue-500">About</a>
+            </li>
+            <li>
+                <a href="{{ route('auth.destroy') }}" class="text-lg text-white font-bold px-4 hover:text-blue-500">Logout</a>
+            </li>
+            @else
+            <li>
+                <a href="{{ route('auth.index') }}" class="text-lg text-white font-bold px-4 hover:text-blue-500">Login</a>
+            </li>
+            @endif
         </ul>
     </nav>
 </header>

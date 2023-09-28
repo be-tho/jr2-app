@@ -20,4 +20,5 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index')->middlewar
 //Login
 Route::get('/login', [LoginController::class, 'index'])->name('auth.index');
 Route::post('/login', [LoginController::class, 'store'])->name('auth.store');
+Route::get('/logout', [LoginController::class, 'destroy'])->name('auth.destroy');
 

@@ -29,7 +29,7 @@ class LoginController extends Controller
         ]);
     }
 
-    public function logout()
+    public function destroy()
     {
         Auth::logout();
         return to_route('home.index')->with('success', 'Sesion cerrada con exito');
