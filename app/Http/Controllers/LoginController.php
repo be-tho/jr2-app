@@ -32,8 +32,6 @@ class LoginController extends Controller
     public function destroy()
     {
         Auth::logout();
-        return to_route('home.index')->with('success', 'Sesion cerrada con exito');
+        return to_route('auth.index')->with('success', 'Logout realizado com exito, te esperamos pronto');
     }
-
-
 }
