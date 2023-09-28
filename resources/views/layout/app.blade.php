@@ -10,8 +10,8 @@
     <title>Jr2-APP | @yield('title', 'Bienvenido')</title>
 </head>
 @yield('header')
-<body class="bg-sky-900 text-white">
-<header class="bg-gray-900">
+<body class="bg-gray-200">
+<header class="bg-gray-900 text-white">
     <nav class="container mx-auto flex items-center justify-between p-4">
         <a href="">
             <img src="{{ asset('img/jr2-logo.png') }}" alt="logo" class="logo">
