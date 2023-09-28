@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
 {{--    <link rel="stylesheet" href="{{ asset('css/app.css') }}">--}}
-    <title>Jr2-app | @yield('title', 'Bienvenido')</title>
+    <title>Jr2-APP | @yield('title', 'Bienvenido')</title>
 </head>
 @yield('header')
 <body class="bg-sky-900 text-white">
@@ -18,10 +18,12 @@
         </a>
         <ul class="flex items-center">
             <li>
-                <a href="" class="text-lg text-white font-bold px-4 hover:text-blue-500">Home</a>
+                <a href="/" class="text-lg text-white font-bold px-4 hover:text-blue-500">Home</a>
             </li>
             <li>
-                <a href="" class="text-lg text-white font-bold px-4 hover:text-blue-500">About</a>
+{{--                <a href="{{ route() }}" class="text-lg text-white font-bold px-4 hover:text-blue-500">About</a>--}}
+{{--                link a login con el route debido --}}
+                <a href="{{ route('auth.index') }}" class="text-lg text-white font-bold px-4 hover:text-blue-500">Login</a>
             </li>
             <li>
                 <a href="" class="text-lg text-white font-bold px-4 hover:text-blue-500">Contact</a>
