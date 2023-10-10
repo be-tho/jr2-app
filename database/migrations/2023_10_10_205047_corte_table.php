@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        // corte table de corte
+        Schema::create('corte', function (Blueprint $table) {
+            $table->id();
+            $table->string('id_corte');
+            $table->string('nombre');
+            $table->integer('cantidad');
+            $table->string('articulos');
+            $table->string('costureros');
+            $table->date('fecha');
+            $table->boolean('estado')->default(0);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        // corte table de corte
+        Schema::dropIfExists('corte');
+    }
+};
