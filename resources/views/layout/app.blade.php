@@ -26,7 +26,7 @@
         <ul class="flex items-center">
             @if(auth()->check())
             <li>
-                <a href="/" class="text-lg text-white font-bold px-4 hover:text-blue-500">Home</a>
+                <a href="/" class="text-lg text-white font-bold px-4 hover:text-blue-500">Cortes</a>
             </li>
             <li>
                 <a href="" class="text-lg text-white font-bold px-4 hover:text-blue-500">Contact</a>
@@ -73,7 +73,7 @@
     </div>
     @vite('resources/js/notification.js')
 @endif
-<main class="container mx-auto flex p-4">
+<main class="container mx-auto p-4">
     @yield('content')
 </main>
 <footer class="bg-gray-900">

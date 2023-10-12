@@ -13,14 +13,14 @@ return new class extends Migration {
     public function up()
     {
         // corte table de corte
-        Schema::create('corte', function (Blueprint $table) {
+        Schema::create('cortes', function (Blueprint $table) {
             $table->id();
             $table->string('id_corte');
             $table->string('nombre');
             $table->integer('cantidad');
             $table->string('articulos');
             $table->string('costureros');
-            $table->date('fecha');
+            $table->date('fecha')->format('d-m-Y');
             $table->boolean('estado')->default(0);
             $table->timestamps();
         });
@@ -34,6 +34,6 @@ return new class extends Migration {
     public function down()
     {
         // corte table de corte
-        Schema::dropIfExists('corte');
+        Schema::dropIfExists('cortes');
     }
 };
