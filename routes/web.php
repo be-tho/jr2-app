@@ -26,4 +26,6 @@ Route::get('/logout', [LoginController::class, 'destroy'])->name('auth.destroy')
 //crear corte
 Route::get('/corte', [CorteController::class, 'index'])->name('corte.index')->middleware('auth');
 Route::post('/corte', [CorteController::class, 'store'])->name('corte.store')->middleware('auth');
+Route::get('/corte/{id}/edit', [CorteController::class, 'edit'])->name('corte.edit')->middleware('auth');
+Route::put('/corte/{id}', [CorteController::class, 'update'])->name('corte.update')->middleware('auth');
 

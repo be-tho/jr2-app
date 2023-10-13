@@ -28,10 +28,10 @@
                         <tr>
                             <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Corte</th>
                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Tela</th>
-                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Encimada</th>
+                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Encimadas</th>
                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Artículos</th>
                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Costureros</th>
-                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Fecha</th>
+                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Fecha de corte</th>
                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Estado</th>
                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Acciones</th>
                         </tr>
@@ -57,8 +57,7 @@
                                     <td class="whitespace-nowrap px-3 py-4 text-sm text-white bg-emerald-800 font-bold text-center">Costurado</td>
                                 @endif
                                 <td class="whitespace-nowrap px-3 py-4 flex items-center gap-2 text-sm text-gray-500">
-{{--                                    {{ route('dashboard.local.edit', ['id' => $corte->id]) }}--}}
-                                    <a href="" class="" aria-label="Editar el local {{$corte->name}}">
+                                    <a href="{{ route('corte.edit', ['id' => $corte->id]) }}" class="" aria-label="Editar el local {{$corte->name}}">
                                         <button class="px-3 py-2 flex items-center gap-2 bg-blue-500 text-white rounded">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                                                 <path stroke-linecap="round" stroke-linejoin="round"

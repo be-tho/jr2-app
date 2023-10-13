@@ -11,6 +11,5 @@ class HomeController extends Controller
         $cortes = Cortes::all();
         // retornar la vista con los datos de los cortes
         return view('sections.home', ['cortes' => $cortes]);
-
     }
 }
