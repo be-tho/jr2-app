@@ -9,7 +9,7 @@ class HomeController extends Controller
     public function index()
     {
         $cortes = Cortes::all();
-        // retornar la vista con los datos de los cortes
-        return view('sections.home', ['cortes' => $cortes]);
+        // retornar la vista con los datos de los cortes de forma descendente
+        return view('sections.home', ['cortes' => $cortes->sortByDesc('id')]);
     }
 }

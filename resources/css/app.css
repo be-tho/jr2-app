@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 main{
-     min-height: calc(100vh - 7.5em);
+     min-height: calc(100vh - 13em);
 }
 .logo{
      height: 60px;

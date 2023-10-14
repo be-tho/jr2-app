@@ -4,7 +4,7 @@
 @extends('layout.app')
 @section('title', 'Editar corte')
 @section('content')
-    <div>
+    <div class="mb-5">
         <a href="{{route('home.index')}}"
            class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -15,10 +15,10 @@
             Volver
         </a>
     </div>
-    <div class="mx-auto font-bold uppercase text-center text-3xl text-blue-950">
+    <div class="mx-auto font-bold uppercase text-center text-3xl text-blue-950 mb-3">
         <h1>Actualizar corte</h1>
     </div>
-    <div class="flex justify-center py-5 ">
+    <div class="flex-1 md:w-8/12 justify-center py-5 m-auto">
         <form action="{{ route('corte.update', ['id' => $corte->id])}}" enctype="multipart/form-data" method="post" class="flex flex-col gap-6 bg-white p-5 rounded-lg shadow-md">
             @method('PUT')
             @csrf
