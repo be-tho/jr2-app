@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CorteRequest;
 use Illuminate\Http\Request;
 use App\Models\Cortes;
+use Intervention\Image\Facades\Image;
+
 class CorteController extends Controller
 {
     //
@@ -28,7 +30,6 @@ class CorteController extends Controller
             'created_at' => now(),
         ]);
         return to_route('home.index')->with('success', 'Corte creado correctamente');
-//        return redirect()->route('home.index');
     }
 
     public function edit($id)

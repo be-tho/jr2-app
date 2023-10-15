@@ -5,20 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cortes extends Model
+class Temporadas extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'id_corte',
-        'fecha',
+        'id_temporada',
         'nombre',
-        'cantidad',
-        'articulos',
-        'costureros',
-        'estado',
-        'imagen',
-        'imagen_alt',
         'created_at',
         'updated_at'
     ];

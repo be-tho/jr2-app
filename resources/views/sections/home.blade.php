@@ -8,7 +8,6 @@
     <h1 class="text-3xl font-bold text-gray-800">Listado de cortes</h1>
 </div>
 <div>
-{{--    {{ route('cortes.create') }}--}}
     <a href="{{route('corte.index')}}" aria-label="Crear un nuevo corte" class="px-3 py-2 flex items-center gap-2 bg-gray-800 text-white rounded">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
             <path fill-rule="evenodd"

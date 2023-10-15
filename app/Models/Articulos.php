@@ -5,21 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cortes extends Model
+class Articulos extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'id_corte',
-        'fecha',
+        'id_articulo',
+        'temporada_id',
         'nombre',
-        'cantidad',
-        'articulos',
-        'costureros',
-        'estado',
+        'descripcion',
+        'precio',
         'imagen',
         'imagen_alt',
         'created_at',
         'updated_at'
     ];
+
+    public function temporadas()
+    {
+        return $this->hasOne(Temporadas::class, 'id_temporada', 'temporada_id');
+    }
 }

@@ -29,7 +29,7 @@
                 <a href="/" class="text-lg text-white font-bold px-4 hover:text-blue-500">Cortes</a>
             </li>
             <li>
-                <a href="" class="text-lg text-white font-bold px-4 hover:text-blue-500">Artículos</a>
+                <a href="{{route('articulo.index')}}" class="text-lg text-white font-bold px-4 hover:text-blue-500">Artículos</a>
             </li>
             <li>
                 <a href="" class="text-lg text-white font-bold px-4 hover:text-blue-500">About</a>
