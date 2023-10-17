@@ -20,12 +20,10 @@
     </div>
     <div class="flex flex-wrap gap-10 justify-center">
         @foreach($articulos as $articulo)
-            <div class=" w-1/5 rounded overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-500">
+            <div class=" sm:w-full md:w-2/5 lg:w-1/5 rounded overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-500">
                 <img  src="{{ url('/uploads/images/articulos/' . $articulo->imagen)}}" alt="{{$articulo->imagen_alt}}">
-                <div class="font-bold text-4xl m-1 underline px-6 py-2"><a href="">{{$articulo->nombre}}</a></div>
-                <div class="font-bold text-2xl m-1 px-6 py-2"><a href="">{{$articulo->precio}}</a></div>
-                <div class="font-bold text-2xl m-1 px-6 py-2"><a href="">{{$articulo->descripcion}}</a></div>
-                <div class="font-bold text-2xl m-1 px-6 py-2"><a href="">{{$articulo->categoria}}</a></div>
+                <div class="font-bold text-3xl m-1 px-6 pt-2 "><a href="">{{$articulo->nombre}}</a></div>
+                <div class="font-bold text-2xl m-1 px-6 pb-2"><a href="">${{$articulo->precio}}</a></div>
             </div>
         @endforeach
 @endsection
