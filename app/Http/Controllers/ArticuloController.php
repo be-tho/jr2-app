@@ -10,7 +10,8 @@ class ArticuloController extends Controller
     //
     public function index()
     {
-        $articulos = Articulos::all();
-        return view('sections.articulos-index', ['articulos' => $articulos->sortByDesc('id')]);
+        $articulos = Articulos::paginate(10);
+        return view('sections.articulos-index', ['articulos' => $articulos]);
     }
+
 }

@@ -18,12 +18,28 @@
             Crear articulos nuevo
         </a>
     </div>
-    <div class="flex flex-wrap gap-10 justify-center">
+    <div class="flex flex-wrap gap-5 lg:gap-10 justify-center">
         @foreach($articulos as $articulo)
-            <div class=" sm:w-full md:w-2/5 lg:w-1/5 rounded overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-500">
-                <img  src="{{ url('/uploads/images/articulos/' . $articulo->imagen)}}" alt="{{$articulo->imagen_alt}}">
-                <div class="font-bold text-3xl m-1 px-6 pt-2 "><a href="">{{$articulo->nombre}}</a></div>
-                <div class="font-bold text-2xl m-1 px-6 pb-2"><a href="">${{$articulo->precio}}</a></div>
+            <div class="w-full lg:w-1/6">
+                <div class="flex flex-col gap-1 lg:gap-3 rounded shadow-lg overflow-hidden">
+                    <div class="h-48 w-full flex justify-center items-center">
+                        <img src="{{ url('/uploads/images/articulos/' . $articulo->imagen)}}" alt="Articulo {{$articulo->id}}" class="w-full h-full object-contain object-center">
+                    </div>
+                    <div class="px-5 py-3">
+                        <h2 class="text-xl font-bold text-gray-800">{{$articulo->nombre}}</h2>
+                        <p class="text-gray-600">{{$articulo->descripcion}}</p>
+                        <p class="text-gray-600">Precio: {{$articulo->precio}}</p>
+                    </div>
+                    <div class="bg-gray-100 px-5 py-3 flex justify-between">
+                        <a href="#" class="text-gray-800 font-bold">Ver más</a>
+                        <a href="#" class="text-yellow-500 font-bold">Editar</a>
+                    </div>
+                </div>
             </div>
         @endforeach
+    </div>
+    {{--        paginacion de laravel--}}
+    <div class="mt-5">
+        {{$articulos->links()}}
+    </div>
 @endsection

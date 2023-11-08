@@ -16,7 +16,6 @@
 
     <title>Jr2-APP | @yield('title', 'Bienvenido')</title>
 </head>
-@yield('header')
 <body class="bg-gray-200">
 <header class="bg-gray-900 text-white">
     <nav class="container mx-auto flex items-center justify-between p-4">
