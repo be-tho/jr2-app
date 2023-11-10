@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Articulos;
 use App\Models\Temporadas;
+use Intervention\Image\Facades\Image;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ArticuloRequest;
@@ -27,23 +28,33 @@ class ArticuloController extends Controller
     {
         try{
             if($request->hasFile('imagen')){
-                $file = $request->file('imagen');
-                $name = time().$file->getClientOriginalName();
-                $file->move(public_path().'/images/', $name);
+                $imagen = $request->file('imagen');
+                $nombre_imagen = time().'_'.$imagen->getClientOriginalName();
+                $ruta_imagen = public_path().'/uploads/images/articulos/'.$nombre_imagen;
+                Image::make($imagen->getRealPath())
+                    ->resize(300, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })
+                    ->save($ruta_imagen);
+                $request->imagen = $nombre_imagen;
+                $request->imagen_alt = $nombre_imagen;
+            }else{
+                $request->imagen = 'default.jpg';
+                $request->imagen_alt = 'default.jpg';
             }
-            $validated = $request->validated();
 
             Articulos::create([
+                'temporada_id' => $request->temporada_id,
                 'nombre' => $request->nombre,
                 'descripcion' => $request->descripcion,
                 'precio' => $request->precio,
                 'imagen' => $request->imagen,
-                //generar el alt de la imagen con el nombre
                 'imagen_alt' => $request->nombre,
                 'created_at' => now(),
             ]);
+            return redirect()->route('articulo.index')->with('success', 'Articulo creado correctamente');
         } catch (\Exception $e) {
-            return back()->with('error', 'Error al subir la imagen');
+            return redirect()->route('articulo.index')->with('error', 'Error al crear el articulo');
         }
     }
 

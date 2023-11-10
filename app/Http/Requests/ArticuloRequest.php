@@ -28,7 +28,7 @@ class ArticuloRequest extends FormRequest
             'nombre' => ['required', 'min:3'],
             'descripcion' => ['required', 'min:3'],
             'precio' => 'required',
-            'imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4048',
             //
         ];
     }
@@ -42,10 +42,9 @@ class ArticuloRequest extends FormRequest
             'descripcion.required' => 'El campo descripcion es obligatorio',
             'descripcion.min' => 'El campo descripcion debe tener al menos 3 caracteres',
             'precio.required' => 'El campo precio es obligatorio',
-            'imagen.required' => 'El campo imagen es obligatorio',
             'imagen.image' => 'El campo imagen debe ser una imagen',
             'imagen.mimes' => 'El campo imagen debe ser un archivo de tipo: jpeg, png, jpg, gif, svg',
-            'imagen.max' => 'El campo imagen debe tener un tamaño maximo de 2048',
+            'imagen.max' => 'El campo imagen debe tener un tamaño maximo de 4048',
         ];
     }
 

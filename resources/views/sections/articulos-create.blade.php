@@ -61,7 +61,7 @@
                            @enderror
                            value="{{ old('descripcion') }}"
                     >
-                    @error('nombre')
+                    @error('descripcion')
                     <div class="text-red-700" id="error-descripcion">{{ $errors->first('descripcion') }}</div>
                     @enderror
                     {{--@formatter:on--}}
@@ -127,18 +127,18 @@
                         </label>
                         {{--@formatter:off--}}
                         <input type="file"
-                               name="image"
-                               id="image"
+                               name="imagen"
+                               id="imagen"
                                class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-stacc-purple focus:ring-stacc-purple
 										focus:outline-none focus:ring focus:ring-opacity-40"
                                placeholder="Imagen del local"
-                               @error('image')
-                               aria-describedby="error-image"
+                               @error('imagen')
+                               aria-describedby="error-imagen"
                                @enderror
-                               value="{{ old('image') }}"
+                               value="{{ old('imagen') }}"
                         >
-                        @error('image')
-                        <div class="text-red-700" id="error-opening_time">{{ $errors->first('image') }}</div>
+                        @error('imagen')
+                        <div class="text-red-700" id="error-opening_time">{{ $errors->first('imagen') }}</div>
                         @enderror
                         {{--@formatter:on--}}
                     </div>
