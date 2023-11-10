@@ -9,7 +9,7 @@
     </div>
     <div class="mb-5">
 {{--        {{route('corte.index')}}--}}
-        <a href="#" aria-label="Crear un nuevo corte" class="px-3 py-2 flex items-center gap-2 bg-gray-800 text-white rounded">
+        <a href="{{route('articulo.create')}}" aria-label="Crear un nuevo corte" class="px-3 py-2 flex items-center gap-2 bg-gray-800 text-white rounded">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
                 <path fill-rule="evenodd"
                       d="M10 18a8 8 0 100-16 8 8 0 000 16zM9 9V5a1 1 0 112 0v4h4a1 1 0 110 2h-4v4a1 1 0 11-2 0v-4H5a1 1 0 110-2h4z"
@@ -31,8 +31,8 @@
                         <p class="text-gray-600">Precio: {{$articulo->precio}}</p>
                     </div>
                     <div class="bg-gray-100 px-5 py-3 flex justify-between">
-                        <a href="#" class="text-gray-800 font-bold">Ver más</a>
-                        <a href="#" class="text-yellow-500 font-bold">Editar</a>
+                        <a href="{{route('articulo.show', ['id' => $articulo->id_articulo])}}" class="text-gray-800 font-bold">Ver más</a>
+                        <a href="{{route('articulo.edit', ['id' => $articulo->id_articulo])}}" class="text-yellow-500 font-bold">Editar</a>
                     </div>
                 </div>
             </div>

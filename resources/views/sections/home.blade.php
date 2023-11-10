@@ -82,6 +82,10 @@
                         @endforeach
                         </tbody>
                     </table>
+{{--                    paginacion --}}
+                </div>
+                <div class="p-5">
+                    {{$cortes->links()}}
                 </div>
             </div>
         </div>

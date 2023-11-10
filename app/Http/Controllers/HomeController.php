@@ -8,7 +8,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $cortes = Cortes::all();
-        return view('sections.home', ['cortes' => $cortes->sortByDesc('id')]);
+        //traer todos los Cortes de la base de datos ordenarlos de forma descendente y paginarlos de 2 en 2
+        $cortes = Cortes::orderBy('id', 'desc')->paginate(6);
+
+        return view('sections.home', ['cortes' => $cortes]);
     }
 }

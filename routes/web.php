@@ -32,4 +32,9 @@ Route::put('/corte/{id}', [CorteController::class, 'update'])->name('corte.updat
 
 //articulos
 Route::get('/articulo', [ArticuloController::class, 'index'])->name('articulo.index')->middleware('auth');
+Route::get('/articulos', [ArticuloController::class, 'create'])->name('articulo.create')->middleware('auth');
+Route::post('/articulo', [ArticuloController::class, 'store'])->name('articulo.store')->middleware('auth');
+Route::get('/articulo/{id}', [ArticuloController::class, 'show'])->name('articulo.show')->middleware('auth');
+Route::get('/articulo/{id}/edit', [ArticuloController::class, 'edit'])->name('articulo.edit')->middleware('auth');
+//Route::put('/articulo/{id}', [ArticuloController::class, 'update'])->name('articulo.update')->middleware('auth');
 
