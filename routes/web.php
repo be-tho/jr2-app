@@ -36,5 +36,5 @@ Route::get('/articulos', [ArticuloController::class, 'create'])->name('articulo.
 Route::post('/articulo', [ArticuloController::class, 'store'])->name('articulo.store')->middleware('auth');
 Route::get('/articulo/{id}', [ArticuloController::class, 'show'])->name('articulo.show')->middleware('auth');
 Route::get('/articulo/{id}/edit', [ArticuloController::class, 'edit'])->name('articulo.edit')->middleware('auth');
-//Route::put('/articulo/{id}', [ArticuloController::class, 'update'])->name('articulo.update')->middleware('auth');
+Route::put('/articulo/{id}', [ArticuloController::class, 'update'])->name('articulo.update')->middleware('auth');
 

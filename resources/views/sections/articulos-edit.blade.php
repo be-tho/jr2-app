@@ -1,8 +1,9 @@
 <?php
 /** @var \App\Models\Temporadas[] $temporadas */
+/** @var \App\Models\Articulos[] $articulo */
 ?>
 @extends('layout.app')
-@section('title', 'Crear artículo nuevo')
+@section('title', 'Editar artículo ' . $articulo->nombre)
 @section('content')
     <div class="mb-5">
         <a href="{{route('articulo.index')}}"
@@ -17,12 +18,13 @@
 {{--        boton de enviar formulario /--}}
     </div>
     <div class="mb-3">
-        <h1 class="text-3xl font-bold text-gray-800 text-center">Creación de Artículo</h1>
+        <h1 class="text-3xl font-bold text-gray-800 text-center">Edición de Artículo</h1>
     </div>
+    {{--    formulario de edicion de articulos--}}
     <div class="flex-1 md:w-8/12 justify-center py-5 m-auto">
-        <form action="{{ route('articulo.store')}}" enctype="multipart/form-data" method="post" class="flex flex-col gap-6 bg-white p-5 rounded-lg shadow-md">
+            <form action="{{route('articulo.update', ['id' => $articulo->id_articulo])}}" enctype="multipart/form-data" method="post" class="flex flex-col gap-6 bg-white p-5 rounded-lg shadow-md">
+            @method('PUT')
             @csrf
-            @method('POST')
             <div class="grid grid-cols-1 gap-6 mt-2 md:grid-cols-2" >
                 <div class="">
                     <label for="nombre" class="block form-label mb-2">
@@ -38,7 +40,7 @@
                            @error('nombre')
                            aria-describedby="error-id_corte"
                            @enderror
-                           value="{{ old('nombre') }}"
+                           value="{{ old('nombre', $articulo->nombre) }}"
                     >
                     @error('nombre')
                     <div class="text-red-700" id="error-nombre">{{ $errors->first('nombre') }}</div>
@@ -59,7 +61,7 @@
                            @error('descripcion')
                            aria-describedby="error-descripcion"
                            @enderror
-                           value="{{ old('descripcion') }}"
+                           value="{{ old('descripcion', $articulo->descripcion) }}"
                     >
                     @error('descripcion')
                     <div class="text-red-700" id="error-descripcion">{{ $errors->first('descripcion') }}</div>
@@ -81,11 +83,10 @@
                             aria-describedby="error-temporada_id"
                         @enderror
                     >
+{{--                       ternario con un option el value $temporada si es 1 es "Invierno 2023" si es 2 es "Verano 2024" --}}
                         <option value="">Selecciona una temporada</option>
                         @foreach($temporadas as $temporada)
-                            <option value="{{ $temporada->id }}"
-                                    @if(old('temporada_id') == $temporada->id) selected @endif
-                            >{{ $temporada->nombre }}</option>
+                            <option value="{{$temporada->id}}" {{ $articulo->temporada_id == $temporada->id ? 'selected' : '' }}>{{$temporada->nombre}}</option>
                         @endforeach
                     </select>
                     @error('temporada_id')
@@ -106,7 +107,7 @@
                            @error('precio')
                            aria-describedby="error-precio"
                            @enderror
-                           value="{{ old('precio') }}"
+                           value="{{ old('precio', $articulo->precio) }}"
                     >
                     @error('precio')
                     <div class="text-red-700" id="error-precio">{{ $errors->first('precio') }}</div>
@@ -115,6 +116,12 @@
                 </div>
             </div>
             <div class="grid grid-cols-1 gap-6 mt-2 md:grid-cols-2" >
+                <div>
+{{--                    pequeña imagen del articulo--}}
+                    <img src="{{ url('/uploads/images/articulos/' . $articulo->imagen)}}" alt="" class="w-20 h-20">
+
+
+                </div>
                 <div class="grid grid-cols-1 gap-6 mt-6 md:grid-cols-2">
                     <div class="">
                         <label for="image" class="block form-label mb-2">
@@ -151,10 +158,8 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                           d="M5 13l4 4L19 7"></path>
                 </svg>
-                Crear Artículo
+                Actualizar Artículo
             </button>
         </form>
     </div>
-
 @endsection
-
