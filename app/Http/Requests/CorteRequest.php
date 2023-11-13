@@ -24,18 +24,17 @@ class CorteRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_corte' => 'required',
             'nombre' => ['required', 'min:3'],
             'cantidad' => 'required',
             'articulos' => ['required', 'min:3'],
             'costureros' => ['required', 'min:3'],
+            'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4048'
         ];
     }
 
     public function messages()
     {
         return [
-            'id_corte.required' => 'El campo numero de corte es obligatorio',
             'nombre.required' => 'El campo tipo de tela es obligatorio',
             'nombre.min' => 'El campo tipo de tela debe tener al menos 3 caracteres',
             'cantidad.required' => 'El campo cantidad es obligatorio',
@@ -43,6 +42,9 @@ class CorteRequest extends FormRequest
             'articulos.min' => 'El campo articulos debe tener al menos 3 caracteres',
             'costureros.required' => 'El campo costureros es obligatorio',
             'costureros.min' => 'El campo costureros debe tener al menos 3 caracteres',
+            'imagen.image' => 'El archivo debe ser una imagen',
+            'imagen.mimes' => 'El archivo debe ser una imagen',
+            'imagen.max' => 'El archivo debe ser menor a 4MB',
         ];
     }
 }

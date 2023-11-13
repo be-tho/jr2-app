@@ -10,7 +10,6 @@ class Cortes extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_corte',
         'fecha',
         'nombre',
         'cantidad',

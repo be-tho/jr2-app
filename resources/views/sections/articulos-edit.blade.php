@@ -118,9 +118,7 @@
             <div class="grid grid-cols-1 gap-6 mt-2 md:grid-cols-2" >
                 <div>
 {{--                    pequeña imagen del articulo--}}
-                    <img src="{{ url('/uploads/images/articulos/' . $articulo->imagen)}}" alt="" class="w-20 h-20">
-
-
+                    <img src="{{ url('/uploads/images/articulos/' . $articulo->imagen)}}" alt="" class="w-40">
                 </div>
                 <div class="grid grid-cols-1 gap-6 mt-6 md:grid-cols-2">
                     <div class="">
@@ -136,7 +134,7 @@
                         <input type="file"
                                name="imagen"
                                id="imagen"
-                               class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-stacc-purple focus:ring-stacc-purple
+                               class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-blue-600 focus:ring-blue-800
 										focus:outline-none focus:ring focus:ring-opacity-40"
                                placeholder="Imagen del local"
                                @error('imagen')

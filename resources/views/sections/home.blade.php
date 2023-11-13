@@ -1,5 +1,5 @@
 <?php
-/** @var \App\Models\Cortes[] $cortes */
+/** @var \App\Models\Cortes $cortes */
 ?>
 @extends('layout.app')
 @section('title', 'Listado de cortes')
@@ -38,7 +38,7 @@
                         <tbody class="divide-y divide-gray-200 bg-white">
                         @foreach($cortes as $corte)
                             <tr>
-                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$corte->id_corte}}</td>
+                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$corte->id}}</td>
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$corte->nombre}}</td>
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$corte->cantidad}}</td>
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$corte->articulos}}</td>
@@ -56,7 +56,18 @@
                                     <td class="whitespace-nowrap px-3 py-4 text-sm text-white bg-emerald-800 font-bold text-center">Costurado</td>
                                 @endif
                                 <td class="whitespace-nowrap px-3 py-4 flex items-center gap-2 text-sm text-gray-500">
-                                    <a href="{{ route('corte.edit', ['id' => $corte->id]) }}" class="" aria-label="Editar el local {{$corte->name}}">
+                                    <a href="{{ route('corte.show', ['id' => $corte->id]) }}" >
+                                        <button class="px-3 py-2 flex items-center gap-2 bg-gray-800 text-white rounded">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                 fill="currentColor" class="w-4 h-4">
+                                                <path fill-rule="evenodd"
+                                                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM9 9V5a1 1 0 112 0v4h4a1 1 0 110 2h-4v4a1 1 0 11-2 0v-4H5a1 1 0 110-2h4z"
+                                                      clip-rule="evenodd"/>
+                                            </svg>
+                                            Ver
+                                        </button>
+                                    </a>
+                                    <a href="{{ route('corte.edit', ['id' => $corte->id]) }}">
                                         <button class="px-3 py-2 flex items-center gap-2 bg-blue-500 text-white rounded">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                                                 <path stroke-linecap="round" stroke-linejoin="round"

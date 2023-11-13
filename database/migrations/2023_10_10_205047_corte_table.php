@@ -15,14 +15,12 @@ return new class extends Migration {
         // corte table de corte
         Schema::create('cortes', function (Blueprint $table) {
             $table->id();
-            $table->string('id_corte');
-            //imagen del corte
             $table->string('nombre');
             $table->integer('cantidad');
             $table->string('articulos');
             $table->string('costureros');
-            $table->string('image');
-            $table->string('image_alt')->nullable();
+            $table->string('imagen');
+            $table->string('imagen_alt')->nullable();
             $table->date('fecha')->format('d-m-Y');
             $table->boolean('estado')->default(0);
             $table->timestamps();

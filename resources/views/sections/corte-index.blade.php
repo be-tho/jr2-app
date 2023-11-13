@@ -20,27 +20,6 @@
             @csrf
             <div class="grid grid-cols-1 gap-6 mt-2 md:grid-cols-2" >
                 <div class="">
-                    <label for="id_corte" class="block form-label mb-2">
-                        Nro de corte *
-                    </label>
-                    {{--@formatter:off--}}
-                    <input type="number"
-                           name="id_corte"
-                           id="id_corte"
-                           class="block w-full px-4 py-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-stacc-purple focus:ring-stacc-purple
-										focus:outline-none focus:ring focus:ring-opacity-40"
-                           placeholder="Ingrese el numero de corte"
-                           @error('id_corte')
-                           aria-describedby="error-id_corte"
-                           @enderror
-                           value="{{ old('id_corte') }}"
-                    >
-                    @error('id_corte')
-                    <div class="text-red-700" id="error-id_corte">{{ $errors->first('id_corte') }}</div>
-                    @enderror
-                    {{--@formatter:on--}}
-                </div>
-                <div class="">
                     <label for="nombre" class="block form-label mb-2">
                         Tela
                     </label>
@@ -58,29 +37,6 @@
                     >
                     @error('nombre')
                     <div class="text-red-700" id="error-nombre">{{ $errors->first('nombre') }}</div>
-                    @enderror
-                    {{--@formatter:on--}}
-                </div>
-            </div>
-            <div class="grid grid-cols-1 gap-6 mt-2 md:grid-cols-2" >
-                <div class="">
-                    <label for="cantidad" class="block form-label mb-2">
-                        Cantidad de encimadas
-                    </label>
-                    {{--@formatter:off--}}
-                    <input type="number"
-                           name="cantidad"
-                           id="cantidad"
-                           class="block w-full px-4 py-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-stacc-purple focus:ring-stacc-purple
-										focus:outline-none focus:ring focus:ring-opacity-40"
-                           placeholder="Ingrese el numero de corte"
-                           @error('cantidad')
-                           aria-describedby="error-cantidad"
-                           @enderror
-                           value="{{ old('cantidad') }}"
-                    >
-                    @error('cantidad')
-                    <div class="text-red-700" id="error-cantidad">{{ $errors->first('cantidad') }}</div>
                     @enderror
                     {{--@formatter:on--}}
                 </div>
@@ -108,6 +64,27 @@
             </div>
             <div class="grid grid-cols-1 gap-6 mt-2 md:grid-cols-2" >
                 <div class="">
+                    <label for="cantidad" class="block form-label mb-2">
+                        Cantidad de encimadas
+                    </label>
+                    {{--@formatter:off--}}
+                    <input type="number"
+                           name="cantidad"
+                           id="cantidad"
+                           class="block w-full px-4 py-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-stacc-purple focus:ring-stacc-purple
+										focus:outline-none focus:ring focus:ring-opacity-40"
+                           placeholder="Ingrese el numero de corte"
+                           @error('cantidad')
+                           aria-describedby="error-cantidad"
+                           @enderror
+                           value="{{ old('cantidad') }}"
+                    >
+                    @error('cantidad')
+                    <div class="text-red-700" id="error-cantidad">{{ $errors->first('cantidad') }}</div>
+                    @enderror
+                    {{--@formatter:on--}}
+                </div>
+                <div class="">
                     <label for="costureros" class="block form-label mb-2">
                         Costureros
                     </label>
@@ -117,10 +94,10 @@
                            id="costureros"
                            class="block w-full px-4 py-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-stacc-purple focus:ring-stacc-purple
                                                                         focus:outline-none focus:ring focus:ring-opacity-40"                       placeholder="Ingrese el numero de corte"
-                            @error('costureros')
-                            aria-describedby="error-costureros"
-                            @enderror
-                            value="{{ old('costureros') }}"
+                           @error('costureros')
+                           aria-describedby="error-costureros"
+                           @enderror
+                           value="{{ old('costureros') }}"
                     >
                     @error('costureros')
                     <div class="text-red-700" id="error-costureros">{{ $errors->first('costureros') }}</div>
@@ -128,8 +105,38 @@
                     {{--@formatter:on--}}
                 </div>
             </div>
+            <div class="grid grid-cols-1 gap-6 mt-2 md:grid-cols-2" >
+                <div class="grid grid-cols-1 gap-6 mt-6 md:grid-cols-2">
+                    <div class="">
+                        <label for="imagen" class="block form-label mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="inline-block bi bi-camera" viewBox="0 0 16 16">
+                                <path
+                                    d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"/>
+                                <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+                            </svg>
+                            Imagen del Corte
+                        </label>
+                        {{--@formatter:off--}}
+                        <input type="file"
+                               name="imagen"
+                               id="imagen"
+                               class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-stacc-purple focus:ring-stacc-purple
+										focus:outline-none focus:ring focus:ring-opacity-40"
+                               placeholder="Imagen del local"
+                               @error('imagen')
+                               aria-describedby="error-imagen"
+                               @enderror
+                               value="{{ old('imagen') }}"
+                        >
+                        @error('imagen')
+                        <div class="text-red-700" id="error-opening_time">{{ $errors->first('imagen') }}</div>
+                        @enderror
+                        {{--@formatter:on--}}
+                    </div>
+                </div>
+            </div>
             <div class="mt-6 mx-auto">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded uppercase">
                     Registrar
                 </button>
             </div>
