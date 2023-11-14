@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ArticuloController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DolarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +39,7 @@ Route::post('/articulo', [ArticuloController::class, 'store'])->name('articulo.s
 Route::get('/articulo/{id}', [ArticuloController::class, 'show'])->name('articulo.show')->middleware('auth');
 Route::get('/articulo/{id}/edit', [ArticuloController::class, 'edit'])->name('articulo.edit')->middleware('auth');
 Route::put('/articulo/{id}', [ArticuloController::class, 'update'])->name('articulo.update')->middleware('auth');
+
+//Dolar
+Route::get('/dolar', [DolarController::class, 'index'])->name('dolar.index')->middleware('auth');
 

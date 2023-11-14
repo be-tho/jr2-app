@@ -34,6 +34,9 @@
                 <a href="" class="text-lg text-white font-bold px-4 hover:text-blue-500">About</a>
             </li>
             <li>
+                <a href="{{ route('dolar.index') }}" class="text-lg text-white font-bold px-4 hover:text-blue-500">Dolar</a>
+            </li>
+            <li>
                 <a href="{{ route('auth.destroy') }}" class="text-lg text-white font-bold px-4 hover:text-blue-500">Logout</a>
             </li>
             @else
