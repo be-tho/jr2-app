@@ -41,5 +41,5 @@ Route::get('/articulo/{id}/edit', [ArticuloController::class, 'edit'])->name('ar
 Route::put('/articulo/{id}', [ArticuloController::class, 'update'])->name('articulo.update')->middleware('auth');
 
 //Dolar
-Route::get('/dolar', [DolarController::class, 'index'])->name('dolar.index')->middleware('auth');
+Route::get('/dolar', [DolarController::class, 'index'])->name('dolar.index');
 

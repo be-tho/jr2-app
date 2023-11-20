@@ -15,5 +15,79 @@
             Volver
         </a>
     </div>
-    <h1>Corte xD</h1>
+    <div class="mb-5">
+        <h1 class="text-center text-3xl font-bold text-gray-800">Corte #{{$corte->id}}</h1>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-6 justify-center align-middle  gap-4">
+        <div class=" md:col-start-2 md:col-span-4 bg-white p-10 rounded-lg shadow-lg">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex flex-col">
+                    <div class="mb-2">
+                        <h2 class="text-lg text-gray-800 font-bold">Tela</h2>
+                    </div>
+                    <div class="mb-2">
+                        <p class="text-gray-700">{{$corte->nombre}}</p>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="mb-2">
+                        <h2 class="text-lg text-gray-800 font-bold">Encimadas</h2>
+                    </div>
+                    <div class="mb-2">
+                        <p class="text-gray-700">{{$corte->cantidad}}</p>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="mb-2">
+                        <h2 class="text-lg text-gray-800 font-bold">Artículos</h2>
+                    </div>
+                    <div class="mb-2">
+                        <p class="text-gray-700">{{$corte->articulos}}</p>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="mb-2">
+                        <h2 class="text-lg text-gray-800 font-bold">Costureros</h2>
+                    </div>
+                    <div class="mb-2">
+                        <p class="text-gray-700">{{$corte->costureros}}</p>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="mb-2">
+                        <h2 class="text-lg text-gray-800 font-bold">Fecha de corte</h2>
+                    </div>
+                    <div class="mb-2">
+                        <p class="text-gray-700">{{$corte->fecha}}</p>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="mb-2">
+                        <h2 class="text-lg text-gray-800 font-bold">Estado</h2>
+                    </div>
+                    <div class="mb-2">
+                        @if($corte->estado == 0 )
+                            <p class="text-gray-700">Cortado</p>
+                        @endif
+                        @if($corte->estado == 1 )
+                            <p class="text-gray-700">Entregado</p>
+                        @endif
+                        @if($corte->estado == 2 )
+                            <p class="text-gray-700">Costurado</p>
+                        @endif
+                    </div>
+                </div>
+                <div class="flex flex-col">
+{{--                    mostrar la imagen del corte --}}
+                    <div class="mb-2">
+                        <h2 class="text-lg text-gray-800 font-bold">Imagen</h2>
+                    </div>
+                    <div class="mb-2">
+                        <img src="{{ url('/uploads/images/cortes/' . $corte->imagen)}}" alt="{{$corte->imagen_alt}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection

@@ -23,6 +23,9 @@
             <img src="{{ asset('img/jr2-logo.png') }}" alt="logo" class="logo">
         </a>
         <ul class="flex items-center">
+            <li>
+                <a href="{{ route('dolar.index') }}" class="text-lg text-white font-bold px-4 hover:text-blue-500">Dolar</a>
+            </li>
             @if(auth()->check())
             <li>
                 <a href="/" class="text-lg text-white font-bold px-4 hover:text-blue-500">Cortes</a>
@@ -30,12 +33,7 @@
             <li>
                 <a href="{{route('articulo.index')}}" class="text-lg text-white font-bold px-4 hover:text-blue-500">Artículos</a>
             </li>
-            <li>
-                <a href="" class="text-lg text-white font-bold px-4 hover:text-blue-500">About</a>
-            </li>
-            <li>
-                <a href="{{ route('dolar.index') }}" class="text-lg text-white font-bold px-4 hover:text-blue-500">Dolar</a>
-            </li>
+
             <li>
                 <a href="{{ route('auth.destroy') }}" class="text-lg text-white font-bold px-4 hover:text-blue-500">Logout</a>
             </li>

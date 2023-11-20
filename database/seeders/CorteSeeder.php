@@ -26,7 +26,7 @@ class CorteSeeder extends Seeder
                 'fecha'             => '2021-10-10',
                 'estado'            => '0',
                 'created_at'        => '2023-10-10',
-                'imagen'        		=> 'default.jpg',
+                'imagen'        		=> 'default-corte.jpg',
                 'imagen_alt'    		=> 'Imagen por defecto del corte',
                 'updated_at'        => now()
 
@@ -39,7 +39,7 @@ class CorteSeeder extends Seeder
                 'fecha'             => '2021-10-10',
                 'estado'            => '1',
                 'created_at'        => '2023-10-10',
-                'imagen'        		=> 'default.jpg',
+                'imagen'        		=> 'default-corte.jpg',
                 'imagen_alt'    		=> 'Imagen por defecto del corte',
                 'updated_at'        => now()
             ],
@@ -51,7 +51,7 @@ class CorteSeeder extends Seeder
                 'fecha'             => '2021-10-10',
                 'estado'            => '2',
                 'created_at'        => '2023-10-10',
-                'imagen'        		=> 'default.jpg',
+                'imagen'        		=> 'default-corte.jpg',
                 'imagen_alt'    		=> 'Imagen por defecto del corte',
                 'updated_at' => now()
             ]
