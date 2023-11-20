@@ -4,7 +4,16 @@
 main{
      min-height: calc(100vh - 13em);
 }
+.menu-ul{
+    height: 100%;
+}
 .logo{
      height: 60px;
      pointer-events: none;
+}
+@media (max-width: 768px) {
+    .menu-ul{
+        background: #212c42;
+        height: 100%;
+    }
 }

@@ -1,16 +1,15 @@
 <!doctype html>
-<html lang="es_ES">
+<html lang="es_ES" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-{{--    <link rel="stylesheet" type="text/css" href="{{asset('resources/css/app.css')}}">--}}
-{{--    <link href="{{asset('resources/js/app.js')}}">--}}
-{{--    <link href="{{asset('resources/js/notification.js')}}">--}}
-{{--    <link rel="stylesheet" type="text/css" href="{{asset('public/build/assets/app-c4359d26.css') }}">--}}
+{{--    <link rel="stylesheet" type="text/css" href="{{asset('public/build/assets/app-4bf52b18.css') }}">--}}
 {{--    <link href="{{asset('public/build/assets/app-b1dc9b4f.js') }}">--}}
 {{--    <link href="{{asset('public/build/assets/notification-a06ccfe5.js') }}">--}}
 
@@ -18,27 +17,38 @@
 </head>
 <body class="bg-gray-200">
 <header class="bg-gray-900 text-white">
-    <nav class="container mx-auto flex items-center justify-between p-4">
-        <a href="">
-            <img src="{{ asset('img/jr2-logo.png') }}" alt="logo" class="logo">
-        </a>
-        <ul class="flex items-center">
-            <li>
+    <nav class="p-5 text-white bg-nav shadow md:flex md:items-center md:justify-between mx-auto
+    2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] max-[320px]:px-[12px]
+    sm:max-w-[540px] top-0 left-0 right-0
+    ">
+        <div class="flex justify-between items-center">
+            <span class="text-2xl cursor-pointer">
+               <a href="">
+                   <img src="{{ asset('img/jr2-logo.png') }}" alt="logo" class="logo">
+               </a>
+            </span>
+            <span class="text-3xl cursor-pointer mx-2 md:hidden block">
+                <ion-icon name="menu-outline" onclick="Menu(this)"></ion-icon>
+            </span>
+        </div>
+        <ul class="menu-ul md:flex md:items-center md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top[-400px] transition-all ease-in duration-500">
+            <li class="mx-4 my-6 md:my-0 cursor-pointer">
                 <a href="{{ route('dolar.index') }}" class="text-lg text-white font-bold px-4 hover:text-blue-500">Dolar</a>
             </li>
             @if(auth()->check())
-            <li>
+            <li class="mx-4 my-6 md:my-0 cursor-pointer">
                 <a href="/" class="text-lg text-white font-bold px-4 hover:text-blue-500">Cortes</a>
             </li>
-            <li>
+            <li class="mx-4 my-6 md:my-0 cursor-pointer">
                 <a href="{{route('articulo.index')}}" class="text-lg text-white font-bold px-4 hover:text-blue-500">Artículos</a>
             </li>
 
-            <li>
+            <li class="mx-4 my-6 md:my-0 cursor-pointer">
                 <a href="{{ route('auth.destroy') }}" class="text-lg text-white font-bold px-4 hover:text-blue-500">Logout</a>
             </li>
             @else
-            <li>
+
+            <li class="mx-4 my-6 md:my-0 cursor-pointer">
                 <a href="{{ route('auth.index') }}" class="text-lg text-white font-bold px-4 hover:text-blue-500">Login</a>
             </li>
             @endif
@@ -72,6 +82,7 @@
         </div>
     </div>
     @vite('resources/js/notification.js')
+{{--    <link href="{{asset('public/build/assets/notification-a06ccfe5.js') }}">--}}
 @endif
 <main class="container mx-auto p-4">
     @yield('content')
@@ -103,9 +114,32 @@
             </p>
         </div>
     </div>
+    <div class="fixed bottom-5 right-5 z-20">
+        <a href="#top" class="text-2xl text-white duration-500">
+            <ion-icon name="arrow-up-outline" class="bg-[#111827] rounded-full p-2"></ion-icon>
+        </a>
+    </div>
 </footer>
 {{--para servidor--}}
 @vite('resources/js/app.js')
+{{--<link href="{{asset('public/build/assets/app-b1dc9b4f.js') }}">--}}
+
+<script>
+    function Menu(e) {
+        let list = document.querySelector('ul');
+        e.name === 'menu' ? (e.name = "close", list.classList.add('top-[80px]'), list.classList.add('opacity-100')) : (e.name = "menu", list.classList.remove('top-[80px]'), list.classList.remove('opacity-100'))
+        //cuando haga click en el a del menu cerrar el nav
+        let links = document.querySelectorAll('.menu-ul li');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                e.name = "menu";
+                list.classList.remove('top[80px]');
+                list.classList.remove('opacity-100');
+            })
+        })
+    }
+
+</script>
 </body>
 </html>
 

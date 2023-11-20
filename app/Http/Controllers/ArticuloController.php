@@ -14,7 +14,7 @@ class ArticuloController extends Controller
     public function index()
     {
 //        $articulos = Articulos::where('temporada_id', 2)
-        $articulos = Articulos::orderBy('id_articulo', 'desc')->paginate(4);
+        $articulos = Articulos::orderBy('id_articulo', 'desc')->paginate(10);
         return view('sections.articulos-index', ['articulos' => $articulos]);
     }
 
