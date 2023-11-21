@@ -31,7 +31,7 @@
                 <ion-icon name="menu-outline" onclick="Menu(this)"></ion-icon>
             </span>
         </div>
-        <ul class="menu-ul md:flex md:items-center md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top[-400px] transition-all ease-in duration-500">
+        <ul class="menu-ul opacity-0 top[-400px] hidden transition-all ease-in duration-500 absolute w-full left-0 md:flex md:items-center md:z-auto md:static md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100">
             <li class="mx-4 my-6 md:my-0 cursor-pointer">
                 <a href="{{ route('dolar.index') }}" class="text-lg text-white font-bold px-4 hover:text-blue-500">Dolar</a>
             </li>
@@ -81,8 +81,7 @@
             </div>
         </div>
     </div>
-    @vite('resources/js/notification.js')
-{{--    <link href="{{asset('public/build/assets/notification-a06ccfe5.js') }}">--}}
+{{--    @vite('resources/js/notification.js')--}}
 @endif
 <main class="container mx-auto p-4">
     @yield('content')
@@ -127,7 +126,9 @@
 <script>
     function Menu(e) {
         let list = document.querySelector('ul');
-        e.name === 'menu' ? (e.name = "close", list.classList.add('top-[80px]'), list.classList.add('opacity-100')) : (e.name = "menu", list.classList.remove('top-[80px]'), list.classList.remove('opacity-100'))
+        e.name === 'menu' ? (e.name = "close", list.classList.add('top-[80px]'), list.classList.add('opacity-100'), list.classList.remove('hidden')) :
+            (e.name = "menu", list.classList.remove('top-[80px]'), list.classList.remove('opacity-100'), list.classList.add('hidden'));
+
         //cuando haga click en el a del menu cerrar el nav
         let links = document.querySelectorAll('.menu-ul li');
         links.forEach(link => {
@@ -138,7 +139,14 @@
             })
         })
     }
-
+</script>
+<script>
+    //para cerrar el mensaje de notificacion
+    let close = document.querySelector('#close');
+    close.addEventListener('click', () => {
+        let message = document.querySelector('.message-session');
+        message.classList.add('hidden');
+    })
 </script>
 </body>
 </html>
