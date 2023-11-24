@@ -15,7 +15,9 @@ return new class extends Migration {
         // corte table de corte
         Schema::create('cortes', function (Blueprint $table) {
             $table->id();
+            $table->integer('numero_corte');
             $table->string('nombre');
+            $table->string('colores');
             $table->integer('cantidad');
             $table->string('articulos');
             $table->string('costureros');

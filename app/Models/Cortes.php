@@ -11,7 +11,9 @@ class Cortes extends Model
 
     protected $fillable = [
         'fecha',
+        'numero_corte',
         'nombre',
+        'colores',
         'cantidad',
         'articulos',
         'costureros',

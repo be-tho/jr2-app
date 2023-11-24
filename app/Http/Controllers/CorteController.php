@@ -23,7 +23,7 @@ class CorteController extends Controller
                 $nombre_imagen = time() . '_' . $imagen->getClientOriginalName();
                 $ruta_imagen = public_path().'/uploads/images/cortes/'.$nombre_imagen;
                 Image::make($imagen->getRealPath())
-                    ->resize(600, null, function ($constraint) {
+                    ->resize(450, 600, function ($constraint) {
                         $constraint->aspectRatio();
                     })
                     ->save($ruta_imagen);
@@ -35,7 +35,9 @@ class CorteController extends Controller
             }
 
             Cortes::create([
+                'numero_corte' => $request->numero_corte,
                 'nombre' => $request->nombre,
+                'colores' => $request->colores,
                 'cantidad' => $request->cantidad,
                 'articulos' => $request->articulos,
                 'costureros' => $request->costureros,
@@ -73,9 +75,10 @@ class CorteController extends Controller
                 $nombre_imagen = time().'_'.$imagen->getClientOriginalName();
                 $ruta_imagen = public_path().'/uploads/images/cortes/'.$nombre_imagen;
                 Image::make($imagen->getRealPath())
-                    ->resize(600, null, function ($constraint) {
+                    ->resize(450, 600, function ($constraint) {
                         $constraint->aspectRatio();
                     })
+                    ->orientate()
                     ->save($ruta_imagen);
                 $request->imagen = $nombre_imagen;
                 $request->imagen_alt = $nombre_imagen;
@@ -94,7 +97,9 @@ class CorteController extends Controller
             }
             Cortes::where('id', $id)
                 ->update([
+                    'numero_corte' => $request->numero_corte,
                     'nombre' => $request->nombre,
+                    'colores' => $request->colores,
                     'cantidad' => $request->cantidad,
                     'articulos' => $request->articulos,
                     'costureros' => $request->costureros,

@@ -16,17 +16,36 @@
         </a>
     </div>
     <div class="mb-5">
-        <h1 class="text-center text-3xl font-bold text-gray-800">Corte #{{$corte->id}}</h1>
+        <h1 class="text-center text-3xl font-bold text-gray-800">Corte de {{$corte->nombre}}</h1>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-6 justify-center align-middle  gap-4">
         <div class=" md:col-start-2 md:col-span-4 bg-white p-10 rounded-lg shadow-lg">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="flex flex-col">
                     <div class="mb-2">
+                        <h2 class="text-lg text-gray-800 font-bold">Numero de Corte</h2>
+                    </div>
+                    <div class="mb-2">
+                        <p class="text-gray-700">#{{$corte->numero_corte}}</p>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="mb-2">
                         <h2 class="text-lg text-gray-800 font-bold">Tela</h2>
                     </div>
                     <div class="mb-2">
                         <p class="text-gray-700">{{$corte->nombre}}</p>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="mb-2">
+                        <h2 class="text-lg text-gray-800 font-bold">Colores</h2>
+                    </div>
+                    <div class="mb-2">
+{{--                        dentro de $corte->colores hay varios colores como un string, hacer un salgo de pagina cuando encuentres una ","  --}}
+                        @foreach(explode(',',$corte->colores) as $color)
+                            <p class="text-gray-700">{{$color}}</p>
+                        @endforeach
                     </div>
                 </div>
                 <div class="flex flex-col">

@@ -23,7 +23,7 @@
             @method('PUT')
             @csrf
             <div class="grid grid-cols-1 gap-6 mt-2 md:grid-cols-2" >
-                <div class="">
+                <div>
                     <label for="nombre" class="block form-label mb-2">
                         Tela
                     </label>
