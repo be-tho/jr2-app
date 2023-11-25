@@ -205,8 +205,8 @@
                     >
 {{--                        mostrar las options 0,1,2 y selecionar el que este seleccionado --}}
                         <option value="0" {{ old('estado', $corte->estado) == 0 ? 'selected' : '' }}>Cortado</option>
-                        <option value="1" {{ old('estado', $corte->estado) == 1 ? 'selected' : '' }}>Entregado</option>
-                        <option value="2" {{ old('estado', $corte->estado) == 2 ? 'selected' : '' }}>Costurado</option>
+                        <option value="1" {{ old('estado', $corte->estado) == 1 ? 'selected' : '' }}>Costurando</option>
+                        <option value="2" {{ old('estado', $corte->estado) == 2 ? 'selected' : '' }}>Entregado</option>
                     </select>
                     @error('estado')
                     <div class="text-red-700" id="error-estado">{{ $errors->first('estado') }}</div>

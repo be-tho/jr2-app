@@ -103,6 +103,7 @@ class CorteController extends Controller
                     'cantidad' => $request->cantidad,
                     'articulos' => $request->articulos,
                     'costureros' => $request->costureros,
+                    'estado' => $request->estado,
                     'imagen' => $request->imagen,
                     'imagen_alt' => $request->imagen_alt,
                     'updated_at' => now(),

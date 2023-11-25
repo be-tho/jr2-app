@@ -52,10 +52,10 @@
                                     <td class="whitespace-nowrap px-3 py-4 text-sm text-white bg-sky-800 font-bold text-center">Cortado</td>
                                 @endif
                                 @if($corte->estado == 1 )
-                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-white bg-rose-800 font-bold text-center">Entregado</td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-white bg-rose-800 font-bold text-center">Costurando</td>
                                 @endif
                                 @if($corte->estado == 2 )
-                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-white bg-emerald-800 font-bold text-center">Costurado</td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-white bg-emerald-800 font-bold text-center">Entregado</td>
                                 @endif
                                 <td class="whitespace-nowrap px-3 py-4 flex items-center gap-2 text-sm text-gray-500">
                                     <a href="{{ route('corte.show', ['id' => $corte->id]) }}" >

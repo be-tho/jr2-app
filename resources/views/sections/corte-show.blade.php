@@ -89,10 +89,10 @@
                             <p class="text-gray-700">Cortado</p>
                         @endif
                         @if($corte->estado == 1 )
-                            <p class="text-gray-700">Entregado</p>
+                            <p class="text-gray-700">Costurando</p>
                         @endif
                         @if($corte->estado == 2 )
-                            <p class="text-gray-700">Costurado</p>
+                            <p class="text-gray-700">Entregado</p>
                         @endif
                     </div>
                 </div>

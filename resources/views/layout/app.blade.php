@@ -5,13 +5,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-{{--    @vite('resources/css/app.css')--}}
+    @vite('resources/css/app.css')
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="{{asset('public/build/assets/app-4bf52b18.css') }}">
-    <link href="{{asset('public/build/assets/app-b1dc9b4f.js') }}">
-    <link href="{{asset('public/build/assets/notification-a06ccfe5.js') }}">
+{{--    <link rel="stylesheet" type="text/css" href="{{asset('public/build/assets/app-64a46817.css') }}">--}}
+{{--    <link href="{{asset('public/build/assets/app-b1dc9b4f.js') }}">--}}
+{{--    <link href="{{asset('public/build/assets/notification-a06ccfe5.js') }}">--}}
 
     <title>Jr2-APP | @yield('title', 'Bienvenido')</title>
 </head>
@@ -120,8 +120,8 @@
     </div>
 </footer>
 {{--para servidor--}}
-{{--@vite('resources/js/app.js')--}}
-<link href="{{asset('public/build/assets/app-b1dc9b4f.js') }}">
+@vite('resources/js/app.js')
+{{--<link href="{{asset('public/build/assets/app-b1dc9b4f.js') }}">--}}
 
 <script>
     function Menu(e) {
@@ -142,11 +142,17 @@
 </script>
 <script>
     //para cerrar el mensaje de notificacion
+    //si el mensaje esta visible al hacer click en el boton cerrar se oculta el mensaje de notificacion con la clase hidden, despues de 3 segundos se oculta el mensaje
     let close = document.querySelector('#close');
-    close.addEventListener('click', () => {
-        let message = document.querySelector('.message-session');
-        message.classList.add('hidden');
-    })
+    let message = document.querySelector('.message-session');
+    if (message) {
+        close.addEventListener('click', () => {
+            message.classList.add('hidden');
+        })
+        setTimeout(() => {
+            message.classList.add('hidden');
+        }, 3000)
+    }
 </script>
 </body>
 </html>
