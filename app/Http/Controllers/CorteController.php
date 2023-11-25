@@ -114,4 +114,18 @@ class CorteController extends Controller
         }
     }
 
+    public function destroy($id)
+    {
+        try {
+            $corte = Cortes::find($id);
+            if($corte->imagen != 'default-corte.jpg'){
+                $ruta_imagen = public_path().'/uploads/images/cortes/'.$corte->imagen;
+                unlink($ruta_imagen);
+            }
+            $corte->delete();
+            return redirect()->route('home.index')->with('success', 'Corte eliminado correctamente');
+        }catch (Exception $e) {
+            return redirect()->route('home.index')->with('error', 'Error al eliminar el corte');
+        }
+    }
 }

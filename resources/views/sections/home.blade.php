@@ -79,7 +79,7 @@
                                         </button>
                                     </a>
 {{--                                    {{ route('local.delete', ['id' => $corte->id]) }}--}}
-                                    <form action="" method="post" onsubmit="return confirm('¿Seguro deseas eliminarlo?')">
+                                    <form action="{{ route('corte.destroy', ['id' => $corte->id]) }}" method="post" onsubmit="return confirm('¿Seguro deseas eliminarlo?')">
                                         @csrf
                                         @method('DELETE')
                                         <button class="px-3 py-2 flex items-center gap-2 bg-red-500 text-white rounded">

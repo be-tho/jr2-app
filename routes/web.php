@@ -31,6 +31,7 @@ Route::post('/corte', [CorteController::class, 'store'])->name('corte.store')->m
 Route::get('/corte/{id}', [CorteController::class, 'show'])->name('corte.show')->middleware('auth');
 Route::get('/corte/{id}/edit', [CorteController::class, 'edit'])->name('corte.edit')->middleware('auth');
 Route::put('/corte/{id}', [CorteController::class, 'update'])->name('corte.update')->middleware('auth');
+Route::delete('/corte/{id}', [CorteController::class, 'destroy'])->name('corte.destroy')->middleware('auth');
 
 //articulos
 Route::get('/articulo', [ArticuloController::class, 'index'])->name('articulo.index')->middleware('auth');
